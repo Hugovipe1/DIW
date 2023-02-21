@@ -1,0 +1,13 @@
+.htmlimports .box{ color:  green; }
+.no-htmlimports .box{ 
+   color:  red; }
+
+.no-canvas canvas{
+    border:1px solid red;
+}
+.canvas canvas{
+    border:1px solid green;
+}
+
+
+

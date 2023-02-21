@@ -1,0 +1,302 @@
+:root{
+	--primary-text-color: #1B1D1D;
+	--secondary-text-color: #FFF;
+	--secondary-color:  rgba(245,246,246,0.8);/* #F5F6F6;*/
+	
+	--color-formula1: #FF1E00;
+	--primary-color-wec: #00236F;
+	--secondary-color-wec: #5CBB0A;
+	--color-dakar: #C13A1C;
+	--color-indy:#0075C9;
+	--color-alpine: #0071C2;
+	--color-AM: #00352F;
+	
+	--degradado-dakar-indy: linear-gradient(to right,var(--color-dakar),var(--color-indy)) no-repeat;
+	--degradado-wec: linear-gradient(to right,var(--primary-color-wec),var(--secondary-color-wec)) no-repeat;
+	--degradado-AM-alpine-wec-f1: linear-gradient(to right,var(--color-AM), var(--color-alpine),var(--primary-color-wec),var(--color-formula1)) no-repeat;
+}
+
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(../fonts/Roboto-Regular-webfont.ttf);
+}
+
+body{
+    
+    background-image: url(../imagenes/huella_rueda.png);
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+header{
+    background: url("../imagenes/Logo_Alpine.png") no-repeat 93%,
+    url("../imagenes/logo-renault.svg") no-repeat 87%,
+    url("../imagenes/logo_toyota_nuevo_sinnombre.svg") no-repeat 83%,
+    url("../imagenes/mclaren-1.svg") no-repeat 76%,
+    url("../imagenes/logo_Formula1.svg") no-repeat 1%,
+    url("../imagenes/Logo_wec_400x400_alpha.svg") no-repeat 6.5%,
+    url("../imagenes/logo_dakar_Grises_alpha.png") no-repeat 12%,
+    url("../imagenes/INDYCAR-Dark.png") no-repeat 16%,
+    url("../imagenes/Logo_AM.svg") no-repeat  99.5%,
+    var(--degradado-AM-alpine-wec-f1);
+    background-size: 5%, 6%, 9%, 8%, 5%, 6%, 3%,4%,7%,100%;
+}
+header>div>h1{
+    color: var(--secondary-text-color);
+    text-shadow: 1px 1px 2px var(--color-alpine);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+header>div>h2{
+    margin-top: 0;
+    color: var(--color-alpine);
+    text-shadow: 1px 1px 2px var(--secondary-text-color);
+}
+
+nav{
+    position: fixed;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    left: 1%;
+    background-color: var(--secondary-color);
+    padding: 1%;
+    
+}
+nav>span{
+    transition: 2s;
+}
+nav>span:hover{
+    transform: rotate(720deg);
+    scale: 1.5;
+    color: var(--color-formula1);
+}
+
+
+header{
+    text-align: center;
+}
+
+body>main{
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 1%;
+}
+body>main>div{
+display: flex;
+gap: 10px;
+}
+
+body>main>h3{
+    text-align: center;
+    color: var(--color-AM) !important;
+}
+
+#breaking{
+    flex: 1;
+    padding: 1%;
+    box-shadow: 0px 0px 4px var(--color-AM);
+    background-color: var(--secondary-text-color);
+    transition: 1s;
+}
+
+#breaking:hover{
+    box-shadow: 0px 0px 10px var(--color-AM);
+}
+
+#breaking>img{
+    width: 100%;
+}
+
+#articleFondo{
+    flex: 2;
+    background-image: url(../imagenes/Test_Abu_Dhabi_2022_Alonso_AstonMartin.webp);
+    background-size: cover;
+    text-align: center;
+    transition: 1s;
+}
+
+#articleFondo:hover{
+    box-shadow: 0px 0px 10px var(--color-AM);
+
+}
+
+#articleFondo>h2{
+    margin-top: 30%;
+    color: var(--color-AM);
+}
+
+body>aside>h3{
+    margin-top: 0;
+    text-align: center;
+}
+
+body>aside{
+    transition: 1s;
+    padding: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+body>aside:hover{
+    box-shadow: 0px 0px 10px var(--primary-text-color);
+}
+
+body>aside>figure{
+    padding: 2% 1%;
+    box-shadow: 0px 0px 10px var(--primary-text-color);
+    background-color: var(--secondary-text-color);
+    display: flex;
+    gap: 15px;
+    
+    margin: 0;
+
+}
+
+body>aside>figure>img{
+    width: 30%;
+    flex: 1;
+    
+}
+
+body>aside>figure>figcaption{
+    flex: 3;
+    display: flex;
+    gap: 20px;
+}
+
+body>aside>figure>figcaption>div{
+    padding: 2%;
+    flex: 1;
+}
+
+body>aside>figure>figcaption>div>h4{
+    text-align: center;
+    margin-top: 0;
+    color: var(--secondary-text-color);
+}
+
+#palmares1{
+    transition: 2s;
+}
+
+#palmares1>h4{
+    
+    background-color: var(--color-formula1);
+}
+
+#palmares1:hover{
+    box-shadow: 0px 0px 5px var(--primary-text-color);
+}
+
+#palmares2{
+    transition: 2s;
+}
+
+#palmares2>h4{
+    background: var(--degradado-wec);
+}
+
+#palmares2:hover{
+    box-shadow: 0px 0px 5px var(--primary-text-color);
+}
+
+
+#palmares3{
+    transition: 2s;
+}
+
+#palmares3>h4{
+    background: var(--degradado-dakar-indy);
+}
+
+#palmares3:hover{
+    box-shadow: 0px 0px 5px var(--primary-text-color);
+}
+
+
+
+
+
+
+
+body>section{
+    margin-bottom: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+body>section>h3{
+    text-align: center;
+    color: var(--color-AM);
+
+}
+
+body>section>div{
+    display: flex;
+    gap: 10px;
+}
+
+body>section>div>article{
+    background-color: var(--secondary-text-color);
+    flex: 1;
+    padding: 1%;
+}
+body>section>div>article>h3{
+    text-align: center;
+}
+body>section>div>article>img{
+    width: 100%;
+}
+
+#mision{
+    box-shadow: 0px 0px 3px var(--color-AM);
+    transition: 1s;
+}
+
+#mision:hover{
+    box-shadow: 0px 0px 9px var(--color-AM);
+    
+}
+
+
+
+#mision>h3{
+    color: var(--secondary-text-color);
+    background-color: var(--color-AM);
+}
+
+#bicampeon1{
+    box-shadow: 0px 0px 3px var(--color-formula1);
+    transition: 1s;
+}
+
+#bicampeon1:hover{
+    box-shadow: 0px 0px 9px var(--color-formula1);
+}
+
+#bicampeon1>h3{
+    color: var(--secondary-text-color);
+    background-color: var(--color-formula1);
+}
+
+#bicampeon2{
+    box-shadow: 0px 0px 3px var(--primary-color-wec);
+    transition: 1s;
+}
+
+#bicampeon2:hover{
+    box-shadow: 0px 0px 9px var(--primary-color-wec);
+}
+
+
+#bicampeon2>h3{
+    color: var(--secondary-text-color);
+    background: var(--degradado-wec);
+}
+
+
+
+
+

@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    font-family: 'Lora', serif;
+    background-color: beige;
+}
+header{
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+nav{
+    border: 1px solid black;
+    text-align: center;
+    background-color: gray;
+    
+    
+}
+.nav{
+    
+    padding: 12px 75px;
+    
+    display: inline;
+    
+}
+a{
+    text-decoration: none;   
+    color:beige;
+}
+.nav:hover{
+    background-color: black;
+}
+main{
+    height: 500px;
+    border: 1px solid black;
+    width: 80%;
+}
+.tituloArticle{
+    text-align: center;
+}
+aside{
+    border: 1px solid black;
+    height: 500px;
+    width: 19.7%;
+    
+    text-align: center;
+}
+.pAside{
+    margin-bottom: 250px;
+    
+}
+
+.mainAside{
+    
+    display: inline-block;
+    vertical-align: top;
+}
+article{
+    margin: 80px;
+}
+footer{
+    font-size: x-large;
+    text-align: center;
+}

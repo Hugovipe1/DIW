@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="paginaFiltrada.css">
+    <script src="index.js"></script>
+    <script src="paginaFiltrada.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <title>Hugo Vicente Peligro</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="img/logo.png" alt="logo">
+            <h1>
+                RuralInstance
+            </h1>
+        </div>
+
+        <span>
+            <a href="index.html">Inicio</a>
+            <a href="#">Casas Rurales</a>
+            <a href="#">Ofertas</a>
+            <a href="#">Guías</a>
+        </span>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#">Casas Rurales</a></li>
+            <li><a href="#">Ofertas</a></li>
+            <li><a href="#">Guias</a></li>
+
+        </ul>
+    </nav>
+
+    <form id="formFixed">
+        <h3>Buscar</h3>
+        <label><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20"
+                height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="10" cy="10" r="7" />
+                <line x1="21" y1="21" x2="15" y2="15" />
+            </svg><input type="text" required placeholder="Sevilla" id="destino">
+        </label>
+        <label>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="20" height="20"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+            </svg>
+            <input type="text" placeholder="4 adultos" id="personas">
+        </label>
+        <label id="fecha">
+            F.Ent / F.Sal
+            <input type="text" name="datefilter2" required placeholder="14/05/2023 - 19/05/2023" id="fecha" />
+        </label>
+        <label id="buscar">
+            <input type="submit" value="Buscar">
+        </label>
+    </form>
+
+    <h4 id="filtro">Filtros</h4>
+
+    <div>
+        <aside>
+
+            <h4 id="filtroAside">Filtros</h4>
+            <section>
+                <h4>Precio</h4>
+                <label><input type="checkbox" name="" id="">€ 0 - € 50</label>
+                <label><input type="checkbox" name="" id="">€ 50 - € 100</label>
+                <label><input type="checkbox" name="" id="">€ 100 - € 150</label>
+                <label><input type="checkbox" name="" id="">€ 150 - € 200</label>
+                <label><input type="checkbox" name="" id="">+€ 200</label>
+            </section>
+            <section>
+                <h4>Características</h4>
+                <label><input type="checkbox">Admite mascotas</label>
+                <label><input type="checkbox">Barbacoa</label>
+                <label><input type="checkbox">Jardín</label>
+                <label><input type="checkbox">Piscina</label>
+            </section>
+            <section>
+                <h4>Acondicionamiento</h4>
+                <label><input type="checkbox" name="" id="">Acceso internet</label>
+                <label><input type="checkbox" name="" id="">Aire acondicionado</label>
+                <label><input type="checkbox" name="" id="">Calefacción</label>
+                <label><input type="checkbox" name="" id="">Chimenea</label>
+                <label><input type="checkbox" name="" id="">Cocina</label>
+            </section>
+            <section id="sectionServicios">
+                <h4>Servicios</h4>
+                <label><input type="checkbox">Actividades para niños</label>
+                <label><input type="checkbox">Opciones comida</label>
+                <label><input type="checkbox">Sala para ventas</label>
+                <label><input type="checkbox">Zona de aparcamiento</label>
+            </section>
+        </aside>
+        <main>
+
+            <form id="form">
+                <label><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20"
+                        height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <circle cx="10" cy="10" r="7" />
+                        <line x1="21" y1="21" x2="15" y2="15" />
+                    </svg><input type="text" placeholder="Sevilla" required id="destino">
+                </label>
+                <label>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="20"
+                        height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    </svg>
+                    <input type="text" placeholder="4 adultos" id="personas">
+                </label>
+                <label id="fecha">
+                    F.Ent / F.Sal
+                    <input type="text" name="datefilter" required placeholder="14/05/2023 - 19/05/2023" id="fecha" />
+                </label>
+                <label id="buscar">
+                    <input type="submit" value="Buscar">
+                </label>
+            </form>
+
+            <article>
+                <div>
+                    <img src="img/casa1salon.jpeg" alt="casa rural">
+                    <img src="img/casa1bathroom.jpeg" alt="casa rural">
+                    <img src="img/casa1piscina.jpeg" alt="casa rural">
+                    <img src="img/casa1barbacoa.jpeg" alt="casa rural">
+                </div>
+                <div class="pulsar">
+                    <div>
+                        <div>
+                            <h3>
+                                Lukanda Luxury
+                            </h3>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="ciudad">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin"
+                                width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="12" cy="11" r="3" />
+                                <path
+                                    d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                            </svg>
+                            Sevilla
+                        </div>
+                        <div class="informacion">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="12" cy="7" r="4" />
+                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                </svg>
+                                6 personas
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="8.5" cy="8.5" r="1" fill="currentColor" />
+                                    <path
+                                        d="M4 7v3.859c0 .537 .213 1.052 .593 1.432l8.116 8.116a2.025 2.025 0 0 0 2.864 0l4.834 -4.834a2.025 2.025 0 0 0 0 -2.864l-8.117 -8.116a2.025 2.025 0 0 0 -1.431 -.593h-3.859a3 3 0 0 0 -3 3z" />
+                                </svg>
+                                3 habitaciones
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bath"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1z" />
+                                    <path d="M6 12v-7a2 2 0 0 1 2 -2h3v2.25" />
+                                    <path d="M4 21l1 -1.5" />
+                                    <path d="M20 21l-1 -1.5" />
+                                </svg>
+                                2 baños
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="precio">
+                            <b>60€/noche</b>
+                        </div>
+                        <button class="boton">
+                            Ver disponibilidad
+                        </button>
+                    </div>
+
+                </div>
+            </article>
+            <article>
+                <div>
+                    <img src="img/casa2salon.jpeg" alt="casa rural">
+                    <img src="img/casa2bathroom.jpeg" alt="casa rural">
+                    <img src="img/casa2piscina.jpeg" alt="casa rural">
+                    <img src="img/casa2cocina.jpeg" alt="casa rural">
+                </div>
+                <div class="pulsar">
+                    <div>
+                        <div>
+                            <h3>
+                                La villa Rural
+                            </h3>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-half"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253z" />
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="ciudad">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin"
+                                width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="12" cy="11" r="3" />
+                                <path
+                                    d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                            </svg>
+                            Sevilla
+                        </div>
+                        <div class="informacion">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="12" cy="7" r="4" />
+                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                </svg>
+                                8 personas
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="8.5" cy="8.5" r="1" fill="currentColor" />
+                                    <path
+                                        d="M4 7v3.859c0 .537 .213 1.052 .593 1.432l8.116 8.116a2.025 2.025 0 0 0 2.864 0l4.834 -4.834a2.025 2.025 0 0 0 0 -2.864l-8.117 -8.116a2.025 2.025 0 0 0 -1.431 -.593h-3.859a3 3 0 0 0 -3 3z" />
+                                </svg>
+                                4 habitaciones
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bath"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1z" />
+                                    <path d="M6 12v-7a2 2 0 0 1 2 -2h3v2.25" />
+                                    <path d="M4 21l1 -1.5" />
+                                    <path d="M20 21l-1 -1.5" />
+                                </svg>
+                                3 baños
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="precio">
+                            <b>55€/noche</b>
+                        </div>
+                        <button class="boton">
+                            Ver disponibilidad
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div>
+                    <img src="img/casa1salon.jpeg" alt="casa rural">
+                    <img src="img/casa1bathroom.jpeg" alt="casa rural">
+                    <img src="img/casa1piscina.jpeg" alt="casa rural">
+                    <img src="img/casa1barbacoa.jpeg" alt="casa rural">
+                </div>
+                <div class="pulsar">
+                    <div>
+                        <div>
+                            <h3>
+                                Lukanda Luxury
+                            </h3>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="ciudad">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin"
+                                width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="12" cy="11" r="3" />
+                                <path
+                                    d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                            </svg>
+                            Sevilla
+                        </div>
+                        <div class="informacion">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="12" cy="7" r="4" />
+                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                </svg>
+                                6 personas
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="8.5" cy="8.5" r="1" fill="currentColor" />
+                                    <path
+                                        d="M4 7v3.859c0 .537 .213 1.052 .593 1.432l8.116 8.116a2.025 2.025 0 0 0 2.864 0l4.834 -4.834a2.025 2.025 0 0 0 0 -2.864l-8.117 -8.116a2.025 2.025 0 0 0 -1.431 -.593h-3.859a3 3 0 0 0 -3 3z" />
+                                </svg>
+                                3 habitaciones
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bath"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1z" />
+                                    <path d="M6 12v-7a2 2 0 0 1 2 -2h3v2.25" />
+                                    <path d="M4 21l1 -1.5" />
+                                    <path d="M20 21l-1 -1.5" />
+                                </svg>
+                                2 baños
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <div class="precio">
+                            <b>60€/noche</b>
+                        </div>
+                        <button class="boton">
+                            Ver disponibilidad
+                        </button>
+                    </div>
+
+                </div>
+            </article>
+            <article>
+                <div>
+                    <img src="img/casa2salon.jpeg" alt="casa rural">
+                    <img src="img/casa2bathroom.jpeg" alt="casa rural">
+                    <img src="img/casa2piscina.jpeg" alt="casa rural">
+                    <img src="img/casa2cocina.jpeg" alt="casa rural">
+                </div>
+                <div class="pulsar">
+                    <div>
+                        <div>
+                            <h3>
+                                La villa Rural
+                            </h3>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-half"
+                                    width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke=""
+                                    fill="#D85013" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253z" />
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="ciudad">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin"
+                                width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="12" cy="11" r="3" />
+                                <path
+                                    d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                            </svg>
+                            Sevilla
+                        </div>
+                        <div class="informacion">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="12" cy="7" r="4" />
+                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                </svg>
+                                8 personas
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <circle cx="8.5" cy="8.5" r="1" fill="currentColor" />
+                                    <path
+                                        d="M4 7v3.859c0 .537 .213 1.052 .593 1.432l8.116 8.116a2.025 2.025 0 0 0 2.864 0l4.834 -4.834a2.025 2.025 0 0 0 0 -2.864l-8.117 -8.116a2.025 2.025 0 0 0 -1.431 -.593h-3.859a3 3 0 0 0 -3 3z" />
+                                </svg>
+                                4 habitaciones
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bath"
+                                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1z" />
+                                    <path d="M6 12v-7a2 2 0 0 1 2 -2h3v2.25" />
+                                    <path d="M4 21l1 -1.5" />
+                                    <path d="M20 21l-1 -1.5" />
+                                </svg>
+                                3 baños
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="precio">
+                            <b>55€/noche</b>
+                        </div>
+                        <button class="boton">
+                            Ver disponibilidad
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+    <footer>
+        <article class="enlacesFooter">
+                <a href="#">Quiénes somos</a>
+                <a href="#">Observatorio</a>
+                <a href="#">Contactar</a>
+        </article>
+        <article class="enlacesFooter">
+            <a href="#">Privacidad</a>
+            <a href="#">Cookies</a>
+            <a href="#">Condiciones de uso</a>
+        </article>
+        <article id="redesFooter">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="44"
+                height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <rect x="4" y="4" width="16" height="16" rx="4" />
+                <circle cx="12" cy="12" r="3" />
+                <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="44"
+                height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                    d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44"
+                height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-youtube" width="44"
+                height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <rect x="3" y="5" width="18" height="14" rx="4" />
+                <path d="M10 9l5 3l-5 3z" />
+            </svg>
+        </article>
+    </footer>
+</body>
+
+</html>

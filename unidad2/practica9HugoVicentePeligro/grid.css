@@ -1,0 +1,75 @@
+header{
+    text-align: center;
+}
+
+nav>ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5,100px);
+    justify-content: center;
+    text-align: center;
+    border: 1px solid black;
+}
+
+nav>ul>li{
+    padding: 13%;
+    
+}
+
+nav>ul>li>a{
+    color: black;
+    text-decoration: none;
+}
+
+body>section{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2%;
+}
+
+body>section>main>section{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(241px, 1fr));
+    gap: 3%;
+}
+
+body>section>main>section>article{
+    border: 1px solid black;
+    padding-left: 4%;
+    padding-bottom: 4%;
+}
+
+body>section>main>section>article>h3{
+    text-align: center;
+}
+
+section>aside>section>article>div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6%;
+}
+
+section>aside>section>article>div>img{
+    width: 100%;
+}
+
+
+aside>section>article>h3{
+    text-align: center;
+}
+footer img{
+    width: 60%;
+}
+footer>h2{
+    text-align: center;
+}
+
+footer>section{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+}
+footer>section>article{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}

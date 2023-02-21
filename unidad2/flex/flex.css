@@ -1,0 +1,29 @@
+#container{
+    display: flex;
+    *flex-flow: wrap;
+    text-align: center;
+}
+
+nav{
+    *flex: 1;
+    flex-grow: 1;
+    
+}
+
+main{
+    *flex: 3;
+    flex-grow: 3;
+    
+}
+
+aside{
+    flex-grow: 1;
+    *flex: 1;
+    
+}
+
+nav, main, aside{
+    *flex-basis: auto;
+    *flex-basis: 0;
+
+}

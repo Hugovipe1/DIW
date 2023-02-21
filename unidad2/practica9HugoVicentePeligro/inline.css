@@ -1,0 +1,115 @@
+h1{
+    text-align: center;
+}
+
+
+nav>ul{
+    text-align: center;
+    border: 1px solid black;
+}
+nav ul li{
+    display: inline-block;
+    padding: 1%; 
+}
+
+nav>ul>li>a{
+    color: black;
+    text-decoration: none;
+}
+
+main{
+    display: inline-block;
+    width: 80%;
+}
+
+main>section{
+    text-align: center;
+}
+
+main>section>article{
+    display: inline-block;
+    width: 27%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-left: 1%;
+    padding-bottom: 1%;
+    border: 1px solid black;
+
+}
+
+main>section>article>h3{
+    text-align: center;
+}
+
+main>section>article>h4{
+    text-align: left;
+}
+
+main>section>article>div{
+    text-align: left;
+}
+
+aside{
+    display: inline-block;
+    width: 19%;
+    vertical-align: top;
+}
+
+#div1{
+    display: inline-block;
+    width: 50%;
+}
+
+#div2{
+    display: inline-block;
+    width: 50%;
+}
+
+aside>section>article>h3{
+    text-align: center;
+}
+
+aside>section>article>div{
+    display: inline-block;
+    text-align: left;
+    width: 49%;  
+}
+
+.img{
+    display: inline-block;
+    text-align: left;
+    width: 41%;
+    margin: 4%;   
+}
+aside>section>article>div>img{
+    width: 100%;   
+}
+
+footer>h2{
+    text-align: center;
+}
+footer>h3{
+    display: inline-block;
+    width:64%;
+    vertical-align: top;
+
+}
+footer>div{
+    display: inline-block;
+    width:35%;
+}
+footer>div>p{
+    display: inline-block;
+    width:15%;
+}
+
+
+footer>div>div{
+    display: inline-block;
+    width: 19%;
+}
+
+footer>div>div>img{
+    width: 50%;
+}

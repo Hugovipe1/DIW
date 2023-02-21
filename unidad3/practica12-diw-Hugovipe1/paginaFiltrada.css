@@ -1,0 +1,536 @@
+:root {
+    --main-color: rgb(28, 126, 28);
+    --secundary-color: #76d275;
+    --line-color: #77d2758d;
+}
+
+@font-face {
+    font-family: 'Noto Sans', sans-serif;
+    src: url(Noto_Sans/NotoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'PT Serif', serif;
+    src: url(PT_Serif/PTSerif-Regular.ttf);
+}
+
+h1,h2,h3,h4,h5{
+    font-family: 'PT Serif', serif;
+
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    font-size: small;
+}
+
+header {
+    margin: 0;
+    color: white;
+    background-color: rgb(28, 126, 28);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px groove;
+}
+
+header>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header>div>img {
+    width: 35px;
+}
+
+header>span {
+    display: none;
+}
+
+nav {
+    background-color: white;
+    border-bottom: rgb(28, 126, 28) 1px groove;
+}
+
+nav>ul {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav>ul>li {
+    flex: 1 0 25px;
+    text-align: center;
+    padding: 2%;
+}
+
+nav>ul>li>a {
+    text-decoration: none;
+    color: rgb(28, 126, 28);
+
+}
+
+nav>ul>li:hover {
+    background-color: rgb(28, 126, 28);
+    padding: 2%;
+}
+
+nav>ul>li:hover>a {
+    color: white;
+}
+
+body>h4 {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+aside {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    justify-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.30);
+    padding-bottom: 3%;
+}
+
+section {
+    flex: 1 0 100px;
+}
+
+aside h4 {
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+#filtroAside {
+    display: none;
+}
+
+aside>section>label {
+    display: block;
+}
+
+aside>section>label {
+    display: block;
+}
+
+aside>section>label>input {
+    margin-right: 3px;
+}
+
+body>div {
+    margin: 0 7%;
+}
+
+main {
+    margin: 3% 0 0 0;
+}
+
+main>article {
+    display: flex;
+    flex-direction: column;
+}
+
+main>article>div:nth-child(1) {
+    height: 200px;
+    display: flex;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+main>article>div:nth-child(1)>img {
+    scroll-snap-align: center;
+    height: 200px;
+    flex: 0 0 100%;
+
+    width: 100%;
+    object-fit: cover;
+
+}
+
+main>article>div {
+    flex: 1;
+}
+
+
+#formFixed {
+    padding: 2%;
+    box-shadow: 0px 6px 13px 0px var(--secundary-color);
+    border-radius: 5px;
+    display: grid;
+    row-gap: 10px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    height: 24vh;
+}
+
+#formFixed>h3 {
+    text-align: center;
+    margin: 0;
+}
+
+#form {
+    border: 1px solid var(--line-color);
+    padding: 2%;
+    margin-bottom: 4%;
+    border-radius: 5px;
+    display: none;
+    row-gap: 10px;
+    background-color: white;
+}
+
+#buscar>input {
+    background-color: var(--secundary-color);
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+
+form>label {
+    justify-content: center;
+    flex: auto;
+    display: flex;
+    align-items: center;
+}
+
+form>label>input {
+    margin-left: 3px;
+    padding: 3px;
+    border-radius: 4px;
+    border: 1px solid black;
+
+}
+
+
+main>article {
+    gap: 15px;
+    padding: 3%;
+    border-radius: 1px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin-bottom: 4%;
+}
+
+
+
+main>article>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    justify-content: space-between;
+}
+
+main>article>div:nth-child(2)>div:nth-child(1) {
+    margin-bottom: 2%;
+}
+
+main>article>div:nth-child(2)>div:nth-child(2) {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    text-align: center;
+}
+
+main>article>div>button {
+    width: 50%;
+}
+
+main>article>div>div>div>h3 {
+    margin: 0;
+}
+
+main>article>div>div>div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1%;
+}
+
+main>article>div>div>div:nth-child(1)>span {
+    display: flex;
+    align-items: center;
+}
+
+.informacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.informacion>div {
+    display: flex;
+    align-items: center;
+}
+
+.precio {
+    text-align: center;
+    background-color: #76d275;
+    padding: 3%;
+    border-radius: 5px;
+}
+
+.boton {
+    border-radius: 5px;
+    background-color: #76d275;
+    border: black 1px solid;
+    padding: 2%;
+}
+
+.ciudad {
+    margin: 1% 0 2% 0%;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    border-top: black 1px solid;
+    padding: 2%;
+    margin-bottom: 25vh;
+    background-color: var(--main-color);
+    color: white;
+}
+
+footer>article {
+    justify-content: center;
+    margin: 0 7% 2% 7%;
+    display: flex;
+}
+
+.enlacesFooter {
+    display: flex;
+    flex-direction: column;
+}
+
+#redesFooter {
+    margin-bottom: 0;
+}
+
+footer>article>a {
+    color: white;
+    text-align: center;
+    flex: 1;
+}
+
+@media(min-width: 689px) and (max-width: 1099px) {
+    body {
+        font-size: medium;
+    }
+
+    nav {
+        display: none;
+    }
+
+    header>span {
+        display: inline;
+        flex: 2;
+    }
+
+    header>div {
+        flex: 2;
+    }
+
+    header>span>a {
+        color: white;
+        text-decoration: none;
+        padding: 3%;
+        transition-duration: 2s;
+    }
+
+     header>span>a:hover{
+       font-size: large;
+    }
+
+    header {
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #form {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    #form>label>input {
+        padding: 7px;
+        border-radius: 4px;
+        border: 1px solid black;
+    }
+
+    #formFixed {
+        display: none;
+    }
+
+    #fecha {
+        grid-column: span 2;
+    }
+
+    #buscar {
+        grid-column: span 2;
+    }
+
+    main>article>div:nth-child(2) {
+        flex-direction: row;
+    }
+
+    main>article>div:nth-child(2)>div:nth-child(1) {
+        flex: 3;
+    }
+
+
+    main>article>div:nth-child(2)>div:nth-child(2) {
+        flex-direction: column;
+        flex: 1;
+    }
+
+    footer {
+        margin-bottom: 0;
+    }
+
+    footer>article {
+        justify-content: center;
+        margin: 0 7% 2% 7%;
+        display: flex;
+    }
+
+    .enlacesFooter {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media(min-width: 1100px) {
+    body {
+        font-size: medium;
+    }
+
+    nav {
+        display: none;
+    }
+
+    header>span {
+        display: inline;
+        flex: 2;
+    }
+
+    header>span>a {
+        color: white;
+        text-decoration: none;
+        padding: 3%;
+        transition: 2s;
+    }
+
+     header>span>a:hover{
+       font-size: large;
+       transform: translateX(10px);
+    }
+
+    header>div {
+        flex: 2;
+    }
+
+    #filtro {
+        display: none;
+    }
+
+    #filtroAside {
+        display: block;
+        padding: 6%;
+        border-bottom: var(--secundary-color) 1px solid;
+    }
+
+    header>span>a {
+        color: white;
+        text-decoration: none;
+        padding: 3%;
+    }
+
+    header {
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #form {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    #form>label>input {
+        padding: 7px;
+        border-radius: 4px;
+        border: 1px solid black;
+    }
+
+    #formFixed {
+        display: none;
+    }
+
+    body>div {
+        margin: 0 5%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 5%;
+    }
+
+    aside {
+        flex: 1;
+        flex-direction: column;
+        border-bottom: 0;
+        padding-bottom: 0%;
+        margin: 0%;
+    }
+
+    aside>section>label {
+        margin-bottom: 3px;
+    }
+
+    main {
+        flex: 4;
+    }
+
+    main>article>div:nth-child(2) {
+        flex-direction: row;
+    }
+
+    main>article>div:nth-child(2)>div:nth-child(1) {
+        flex: 3;
+    }
+
+    main>article>div:nth-child(2)>div:nth-child(2) {
+        flex-direction: column;
+        flex: 1;
+    }
+
+    footer {
+        margin-bottom: 0;
+    }
+
+    footer>article {
+        justify-content: center;
+        margin: 0 7% 2% 7%;
+        display: flex;
+    }
+
+    .enlacesFooter {
+        display: flex;
+        flex-direction: row;
+    }
+}

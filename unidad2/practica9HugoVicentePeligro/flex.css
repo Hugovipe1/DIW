@@ -1,0 +1,100 @@
+header{
+    text-align: center;
+}
+
+nav>ul{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+nav>ul>li{
+    padding: 1%;
+}
+
+nav>ul>li>a{
+    color: black;
+    text-decoration: none;
+}
+
+main{
+    
+    flex: 3;
+}
+
+aside{
+    
+    flex: 1;
+}
+
+body>section{
+    display: flex;
+    gap: 2%;
+}
+
+body>section>main{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 4%;
+   align-items: start;
+}
+body>section>main>article{
+    flex: 1 0 290px;
+    border: 1px solid black;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+}
+body>section>main>section>article>h3{
+    text-align: center;
+}
+
+
+ body>section>aside>section>article>div{
+    display: flex;
+    
+}
+
+body>section>aside>section>article>div>div{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body>section>aside>section>article>h3{
+    text-align: center;
+}
+
+body>section>aside>section>article>div>img{
+    width:45%;
+    margin: 3%;
+}
+
+footer>h2{
+    text-align: center;
+}
+
+footer>section{
+    display: flex;
+    align-items: center;
+}
+
+footer>section>h3{
+    flex: 2;
+}
+
+footer>section>article{
+    flex: 1;
+    display: flex;
+}
+
+
+footer>section>article>div>img{
+    width: 50%;
+}
+
